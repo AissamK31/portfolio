@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-secondary text-light;
+  }
+
+  ::selection {
+    @apply bg-primary/30 text-light;
+  }
+}
+
+@layer components {
+  .section {
+    @apply py-20 px-4 md:px-8 relative overflow-hidden;
+  }
+
+  .container {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .btn {
+    @apply px-6 py-2 rounded font-medium transition-all duration-300 relative overflow-hidden;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-light hover:bg-primary/90 shadow-lg shadow-primary/20;
+  }
+
+  .btn::after {
+    content: "";
+    @apply absolute inset-0 bg-white/20 translate-x-[-100%] skew-x-[-45deg] transition-transform duration-300;
+  }
+
+  .btn:hover::after {
+    @apply translate-x-[100%];
+  }
+
+  .section-title {
+    @apply text-3xl font-bold mb-8 relative inline-block;
+    &::after {
+      content: "";
+      @apply absolute -bottom-2 left-0 w-1/2 h-1 bg-primary scale-x-0 transition-transform duration-300 origin-left;
+    }
+    &:hover::after {
+      @apply scale-x-100;
+    }
+  }
+
+  .card {
+    @apply bg-dark p-6 rounded-lg shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl relative overflow-hidden;
+  }
+
+  .card::before {
+    content: "";
+    @apply absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 transition-opacity duration-300;
+  }
+
+  .card:hover::before {
+    @apply opacity-100;
+  }
+
+  .bg-hex-pattern {
+    @apply relative;
+    &::before {
+      content: "";
+      @apply absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-50;
+    }
+  }
+
+  .nav-link {
+    @apply relative overflow-hidden;
+    &::after {
+      content: "";
+      @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 transition-transform duration-300;
+    }
+    &:hover::after {
+      @apply scale-x-100;
+    }
+  }
+
+  .icon-hover {
+    @apply transition-transform duration-300 hover:scale-110 hover:rotate-3;
+  }
+
+  .input-focus {
+    @apply transition-all duration-300;
+    &:focus {
+      @apply ring-2 ring-primary/50 ring-offset-2 ring-offset-dark;
+    }
+  }
+}
