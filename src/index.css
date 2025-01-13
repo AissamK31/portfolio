@@ -3,96 +3,87 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
   body {
-    @apply bg-secondary text-light;
+    @apply bg-light dark:bg-secondary text-dark dark:text-light transition-colors duration-300;
   }
 
   ::selection {
-    @apply bg-primary/30 text-light;
+    @apply bg-primary/20 text-primary;
   }
 }
 
 @layer components {
-  .section {
-    @apply py-20 px-4 md:px-8 relative overflow-hidden;
-  }
-
   .container {
-    @apply max-w-7xl mx-auto;
+    @apply max-w-7xl mx-auto px-4;
   }
 
-  .btn {
-    @apply px-6 py-2 rounded font-medium transition-all duration-300 relative overflow-hidden;
-  }
-
-  .btn-primary {
-    @apply bg-primary text-light hover:bg-primary/90 shadow-lg shadow-primary/20;
-  }
-
-  .btn::after {
-    content: "";
-    @apply absolute inset-0 bg-white/20 translate-x-[-100%] skew-x-[-45deg] transition-transform duration-300;
-  }
-
-  .btn:hover::after {
-    @apply translate-x-[100%];
+  .section {
+    @apply py-20 relative overflow-hidden;
   }
 
   .section-title {
-    @apply text-3xl font-bold mb-8 relative inline-block;
-    &::after {
-      content: "";
-      @apply absolute -bottom-2 left-0 w-1/2 h-1 bg-primary scale-x-0 transition-transform duration-300 origin-left;
-    }
-    &:hover::after {
-      @apply scale-x-100;
-    }
+    @apply text-4xl font-bold text-dark dark:text-light mb-12 text-center hover:text-primary transition-colors duration-300;
+  }
+
+  .btn {
+    @apply px-6 py-2 rounded font-medium transition-all duration-300 relative overflow-hidden hover:scale-105 hover:shadow-lg;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-light hover:bg-primary/90 shadow-primary/30 shadow-lg hover:shadow-primary/50;
   }
 
   .card {
-    @apply bg-dark p-6 rounded-lg shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl relative overflow-hidden;
-  }
-
-  .card::before {
-    content: "";
-    @apply absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 transition-opacity duration-300;
-  }
-
-  .card:hover::before {
-    @apply opacity-100;
-  }
-
-  .bg-hex-pattern {
-    @apply relative;
-    &::before {
-      content: "";
-      @apply absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-50;
-    }
+    @apply bg-neutral/5 dark:bg-dark/50 p-6 rounded-lg shadow-lg backdrop-blur-sm transition-all duration-300 
+    border border-dark/5 dark:border-light/5 hover:border-primary/20 dark:hover:border-primary/20
+    hover:shadow-xl hover:scale-[1.02] hover:-translate-y-1;
   }
 
   .nav-link {
-    @apply relative overflow-hidden;
-    &::after {
-      content: "";
-      @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 transition-transform duration-300;
-    }
-    &:hover::after {
-      @apply scale-x-100;
-    }
-  }
-
-  .icon-hover {
-    @apply transition-transform duration-300 hover:scale-110 hover:rotate-3;
+    @apply text-dark dark:text-light hover:text-primary dark:hover:text-primary transition-colors relative
+    after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary 
+    after:transition-all after:duration-300 hover:after:w-full;
   }
 
   .input-focus {
-    @apply transition-all duration-300;
-    &:focus {
-      @apply ring-2 ring-primary/50 ring-offset-2 ring-offset-dark;
-    }
+    @apply focus:ring-2 focus:ring-primary/20 dark:focus:ring-primary/40 focus:border-primary dark:focus:border-primary/80
+    hover:border-primary/50 transition-all duration-300;
   }
+
+  .icon-hover {
+    @apply hover:scale-110 transition-transform duration-300 hover:text-primary;
+  }
+}
+
+.bg-hex-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill-opacity='0.08' fill='%23DC2626' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-size: 60px 60px;
+  animation: patternFloat 30s linear infinite;
+}
+
+@keyframes patternFloat {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 60px 60px;
+  }
+}
+
+.section::before {
+  content: "";
+  @apply absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent opacity-0 transition-opacity duration-500;
+}
+
+.section:hover::before {
+  @apply opacity-100;
+}
+
+.card::after {
+  content: "";
+  @apply absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 transition-opacity duration-300;
+}
+
+.card:hover::after {
+  @apply opacity-100;
 }
