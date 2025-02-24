@@ -125,14 +125,14 @@ function App() {
                 Accueil
               </a>
               <a
-                href="#apropos"
+                href="#about"
                 className={`nav-link ${
                   isDarkMode
                     ? "text-light hover:text-primary"
                     : "text-dark hover:text-primary"
                 } transition-colors`}
               >
-                À propos
+                À Propos
               </a>
               <a
                 href="#projets"
@@ -432,18 +432,15 @@ function App() {
         </motion.div>
 
         {/* À propos Section */}
-        <section
-          id="a-propos"
-          className={`section py-20 ${isDarkMode ? "bg-hex-pattern" : ""}`}
-        >
-          <div className="container">
+        <section id="about" className="py-20">
+          <div className="container mx-auto px-4">
             <motion.h2
               className="section-title"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              Mon Parcours
+              À Propos
             </motion.h2>
             <motion.div
               className="grid md:grid-cols-2 gap-8"
@@ -461,63 +458,29 @@ function App() {
                   Formation
                 </h3>
                 <div className="space-y-4">
-                  <motion.div
-                    className="relative pl-6 border-l-2 border-primary"
-                    whileHover={{ x: 5 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    <span className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-primary"></span>
-                    <p
-                      className={`font-semibold ${
-                        isDarkMode ? "text-light" : "text-dark"
-                      }`}
-                    >
-                      2024
+                  <div className="border-l-4 border-primary pl-4">
+                    <p className="text-sm text-gray-500">2024 - En cours</p>
+                    <h4 className="font-semibold">
+                      Formation Développement Web et Web Mobile
+                    </h4>
+                    <p className="text-sm">Sofip, Valenciennes, France</p>
+                  </div>
+                  <div className="border-l-4 border-primary pl-4">
+                    <p className="text-sm text-gray-500">2024</p>
+                    <h4 className="font-semibold">
+                      Formation Développement Web Front-End
+                    </h4>
+                    <p className="text-sm">Simplon Valenciennes, France</p>
+                  </div>
+                  <div className="border-l-4 border-primary pl-4">
+                    <p className="text-sm text-gray-500">2020</p>
+                    <h4 className="font-semibold">
+                      Baccalauréat Économique et Social
+                    </h4>
+                    <p className="text-sm">
+                      Lycée de l'Escaut, Valenciennes, France
                     </p>
-                    <p
-                      className={isDarkMode ? "text-light/80" : "text-dark/80"}
-                    >
-                      Formation Développeur Web - Simplon Valenciennes
-                    </p>
-                  </motion.div>
-                  <motion.div
-                    className="relative pl-6 border-l-2 border-primary"
-                    whileHover={{ x: 5 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    <span className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-primary"></span>
-                    <p
-                      className={`font-semibold ${
-                        isDarkMode ? "text-light" : "text-dark"
-                      }`}
-                    >
-                      2022
-                    </p>
-                    <p
-                      className={isDarkMode ? "text-light/80" : "text-dark/80"}
-                    >
-                      BTS Comptabilité
-                    </p>
-                  </motion.div>
-                  <motion.div
-                    className="relative pl-6 border-l-2 border-primary"
-                    whileHover={{ x: 5 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    <span className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-primary"></span>
-                    <p
-                      className={`font-semibold ${
-                        isDarkMode ? "text-light" : "text-dark"
-                      }`}
-                    >
-                      2019
-                    </p>
-                    <p
-                      className={isDarkMode ? "text-light/80" : "text-dark/80"}
-                    >
-                      Baccalauréat ES
-                    </p>
-                  </motion.div>
+                  </div>
                 </div>
               </div>
 
@@ -1300,11 +1263,11 @@ function App() {
                   Accueil
                 </a>
                 <a
-                  href="#apropos"
+                  href="#about"
                   onClick={toggleMenu}
                   className="text-light hover:text-primary transition-colors py-3 px-4 rounded-lg hover:bg-dark/90 bg-black/20 backdrop-blur-sm shadow-lg"
                 >
-                  À propos
+                  À Propos
                 </a>
                 <a
                   href="#projets"
